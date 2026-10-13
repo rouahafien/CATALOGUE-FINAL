@@ -7,7 +7,9 @@
 </head>
 <body>
     <app-en-tete></app-en-tete>
-  <app-liste-cours></app-liste-cours>
+  <app-liste-cours (coursSelectionne)="onSelectionneCours($event)"></app-liste-cours>
+  <app-details-cours [cours]="coursSelectionne"></app-details-cours>
   <app-pied-page></app-pied-page>
 </body>
 </html>
+
