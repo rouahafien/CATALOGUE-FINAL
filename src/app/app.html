@@ -6,10 +6,31 @@
   <title>Document</title>
 </head>
 <body>
+  <div>
+   <header>
     <app-en-tete></app-en-tete>
-  <app-liste-cours (coursSelectionne)="onSelectionneCours($event)"></app-liste-cours>
-  <app-details-cours [cours]="coursSelectionne"></app-details-cours>
-  <app-pied-page></app-pied-page>
+  </header>
+    <section>
+     <app-liste-cours (coursSelectionne)="onSelectionneCours($event)"></app-liste-cours>  
+    </section>
+   <aside>
+    <app-details-cours [cours]="coursSelectionne"></app-details-cours>
+   </aside>
+    <footer>
+      @defer (on viewport)
+      {
+        <app-pied-page></app-pied-page>  
+      }
+    @placeholder {
+      <div class="pied-page-placeholder">...</div>
+    }
+    @loading {
+      <p>Chargement...</p>
+    }
+    </footer>
+      
+  </div>
+ 
 </body>
 </html>
 
